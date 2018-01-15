@@ -1,0 +1,96 @@
+% !TeX spellcheck = de_DE
+% !TeX program = xelatex
+%%
+% (German) letter template by Jan-Philip Gehrcke
+% http://gehrcke.de -- jgehrcke@gmail.com -- November 2009
+%%
+
+% DIV and BCOR settings result in smaller/wider side margins
+% see scrguide @
+% http://www.tex.ac.uk/tex-archive/macros/latex/contrib/koma-script/scrguide.pdf
+\documentclass[version=last,fontsize=11pt,DIV=11,BCOR=10mm,parskip=full]{scrlttr2}
+
+\usepackage{fontspec}
+\usepackage{polyglossia}% Sprachumschaltung
+\setdefaultlanguage{german}
+\usepackage{graphicx}
+\usepackage{fullpage}
+
+\usepackage{fontspec}
+\setmainfont[SmallCapsFont={Latin Modern Roman Caps}]{Latin Modern Sans}
+
+
+% symbols: (cell)phone, email
+\RequirePackage{marvosym} 
+% for gray color in header
+\RequirePackage{color}
+\RequirePackage{graphicx}
+
+% for explanation and more options see scrguide @
+% http://www.tex.ac.uk/tex-archive/macros/latex/contrib/koma-script/scrguide.pdf
+% comment out, what you don't want (e.g. `fromphone`).
+\KOMAoptions{
+	%foldmarks=true,
+	%foldmarks=BlmTP,
+	%fromurl=true,
+	fromemail=true,
+	fromphone=true,
+	fromalign=right,
+	%fromrule=aftername,
+	footsepline=off
+}
+
+% The header (sender) can be styled with `fromrule` (above)
+% and with custom colors (e.g. see below) and with special font styles
+% set by `\setkomafont` (e.g. see below, too)
+
+% define gray for header
+%\definecolor{mygray}{gray}{.55}
+% define blue for address
+%\definecolor{myblue}{rgb}{0.25,0.45,0.75}
+
+\setkomavar{fromname}{Vorname Nachname}
+\setkomafont{backaddress}{\scshape}
+\setkomafont{subject}{\scshape}
+%\setkomafont{fromname}{\bfseries\color{mygray}\LARGE}
+%\setkomafont{fromrule}{\color{mygray}}
+%\setkomafont{addressee}{\small}
+
+\setkomavar{fromaddress}{Musterstraße 2, 01234 Musterstadt}
+\setkomavar{fromphone}[\Mobilefone~]{+49\,151\,00\,000\,000}
+\setkomavar{fromemail}[\Letter~]{mail@example.com}
+%\setkomavar{fromurl}[]{http://stfu.se}
+%\setkomafont{fromaddress}{\small\rmfamily\mdseries\slshape\color{myblue}}
+
+\setkomavar{backaddress}{V. Nachname, Musterstr. 2, 01234 Musterstadt}
+
+\setkomavar{signature}{Vorname Nachname}
+% signature same indention level as rest
+\renewcommand*{\raggedsignature}{\raggedright}
+\makeatletter
+% space for signature
+\@setplength{sigbeforevskip}{30pt}
+\makeatother
+
+% overall sans serif font
+\renewcommand{\familydefault}{\sfdefault}
+\begin{document}
+\setkomavar{subject}{Betreff: Wünsche für das nächste Jahr}
+\setkomavar{date}{den 06. Dezember 2018}
+\setkomavar{place}{Musterstadt}
+
+% German address
+\begin{letter}{
+An den Nikolaus\\
+66351 St. Nikolaus}
+
+\opening{Sehr geehrte Damen und Herren,}
+
+hiermit wünsche ich mir viel Schokolade und Weltfrieden für das nächste Jahr.
+
+\closing{Mit freundlichen Grüßen}
+
+\setkomavar*{enclseparator}{Anlagen}
+%\encl{Liste der guten Taten des Jahres}
+\end{letter}
+\end{document}
